@@ -1,0 +1,10 @@
+.banner {
+    background: url(../../../images/banner-bg.webp);
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.banner h2 {
+    font-weight: 600;
+}
