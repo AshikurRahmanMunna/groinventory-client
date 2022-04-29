@@ -9,7 +9,7 @@ import './Header.css';
 const Header = () => {
   return (
     <div>
-      <Navbar sticky="top" className="custom-nav">
+      <Navbar expand="lg" sticky="top" className="custom-nav">
         <Container>
           <Navbar.Brand as={Link} to="/">
             <img style={{width: '200px'}} src={logo} alt="GroInventory Logo" />
