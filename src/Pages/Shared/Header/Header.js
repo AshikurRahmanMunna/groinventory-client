@@ -1,15 +1,26 @@
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from '../../../logos/logo1.png';
 import './Header.css';
 
 const Header = () => {
+  const [hideNav, setHideNav] = useState(false);
+  const location = useLocation();
+  const pathname = location.pathname;
+  useEffect(() => {
+    if(pathname === '/login' || pathname === '/register') {
+      setHideNav(true);
+    }
+    else {
+      setHideNav(false)
+    }
+  }, [pathname])
   return (
     <div>
-      <Navbar expand="lg" sticky="top" className="custom-nav">
+      <Navbar expand="lg" className={`custom-nav ${hideNav ? 'd-none' : ''}`}>
         <Container>
           <Navbar.Brand as={Link} to="/">
             <img style={{width: '200px'}} src={logo} alt="GroInventory Logo" />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Footer.css";
 import logo from "../../../logos/logo1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,7 +10,7 @@ import {
   faLinkedinIn,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   faArrowRight,
   faEnvelope,
@@ -19,8 +19,19 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
+  const [hideFooter, setHideFooter] = useState();
+  const location = useLocation();
+  const pathname = location.pathname;
+  useEffect(() => {
+    if(pathname === '/login' || pathname === '/register') {
+      setHideFooter(true)
+    }
+    else {
+      setHideFooter(false);
+    }
+  }, [pathname])
   return (
-    <footer>
+    <footer className={hideFooter && 'd-none'}>
       <div className="container">
       <div className="row py-5 row-cols-lg-3 row-cols-sm-6 row-cols-12">
         <div className="col">
@@ -72,12 +83,12 @@ const Footer = () => {
           <ul className="p-0">
             <li>
               <a href="tel:01715808691">
-              <FontAwesomeIcon icon={faPhone} /> <span>1715808691</span>
+              <FontAwesomeIcon icon={faPhone} /> <span>+8801715808691</span>
               </a>
             </li>
             <li>
               <a href="tel:01819475655">
-              <FontAwesomeIcon icon={faPhone} /> <span>01819475655</span>
+              <FontAwesomeIcon icon={faPhone} /> <span>+8801819475655</span>
               </a>
             </li>
             <li className="d-flex align-items-center">
@@ -121,7 +132,7 @@ const Footer = () => {
             </li>
             <li>
               <a href="https://www.google.com/maps/place/Mulibash+Bazar/@23.6371873,90.5059683,21z/data=!4m5!3m4!1s0x3755b1b4598dae09:0xca3ebf7605a5ae07!8m2!3d23.6372154!4d90.5060616" target={"_blank"} rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faLocationDot} />{" "}
+              <FontAwesomeIcon icon={faArrowRight} />{" "}
               <span>
                 <small>Register</small>
               </span>

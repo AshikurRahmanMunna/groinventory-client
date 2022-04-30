@@ -1,12 +1,15 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
+#root {
+  background-color: #EEEEEE;
+}
 ::selection {
 	color: white;
 	background-color: #FF7800;
 }
 .text-custom-primary {
-  color: #FF7800;
+  color: #FF7800 !important;
 }
 .btn-banner {
   background: transparent;

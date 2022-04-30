@@ -1,0 +1,27 @@
+.to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background: lightgray;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all .3s ease-in-out;
+}
+.to-top svg {
+    width: 40px;
+    height: 40px;
+}
+.to-top svg path {
+    transition: all .3s ease-in-out;
+    fill: #FF7800;
+}
+.to-top:hover {
+    background: #FF7800;
+}
+.to-top:hover svg path {
+    fill: lightgray;
+}
