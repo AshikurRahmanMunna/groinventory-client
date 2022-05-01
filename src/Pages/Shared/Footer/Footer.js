@@ -31,7 +31,7 @@ const Footer = () => {
     }
   }, [pathname])
   return (
-    <footer className={hideFooter && 'd-none'}>
+    <footer className={hideFooter ? 'd-none' : ''}>
       <div className="container">
       <div className="row py-5 row-cols-lg-3 row-cols-sm-6 row-cols-12">
         <div className="col">

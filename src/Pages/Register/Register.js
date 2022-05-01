@@ -7,15 +7,15 @@ import auth from "../../firebase.init";
 import { useUpdateProfile } from "react-firebase-hooks/auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import Loading from "../Shared/Loading/Loading";
 
 const Register = () => {
   const navigate = useNavigate();
   const checkRef = useRef();
-
+  const [show, setShow] = useState(false);
   const [checked, setChecked] = useState(false);
-  console.log(checked);
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
   let errorElement;
   if (error) {
     errorElement = <p className="text-danger">{error?.message}</p>;
@@ -23,19 +23,20 @@ const Register = () => {
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
   const [updateProfile, updating, errorUpdating] = useUpdateProfile(auth);
+  if(loading || updating) {
+    return <Loading></Loading>
+  }
   const handleRegister = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    const profile = event.target.profilePic;
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
   };
   if (user) {
     navigate(from, { replace: true });
   }
-  const [show, setShow] = useState(false);
   return (
     <div className="full-height-center">
       <div>

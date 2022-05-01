@@ -9,7 +9,7 @@ const Review = ({review}) => {
     return (
         <div className='review-card'>
             <img className='mx-auto' src={img} alt={name} />
-            <h2>{name}</h2>
+            <h5>{name}</h5>
             <p><small>{desc}</small></p>
             <Rating initialRating={rating} emptySymbol={<FontAwesomeIcon style={{color: 'lightgray'}} icon={faStar} />} fullSymbol={<FontAwesomeIcon style={{color: 'orange'}} icon={faStar} />} readonly />
         </div>

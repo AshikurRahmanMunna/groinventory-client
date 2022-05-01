@@ -21,6 +21,7 @@ const Header = () => {
       setHideNav(false);
     }
   }, [pathname]);
+  console.log(user)
   return (
     <div>
       <Navbar expand="lg" className={`custom-nav ${hideNav ? "d-none" : ""}`}>
@@ -49,8 +50,8 @@ const Header = () => {
                   <NavDropdown.Item href="#action/3.2">
                     Another action
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">
-                    Something
+                  <NavDropdown.Item as={Link} to="/reviews/add">
+                    Add Your Review
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={() => signOut(auth)}>

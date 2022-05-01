@@ -11,6 +11,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Register from "./Pages/Register/Register";
 import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import RequireAuth from "./Pages/Shared/RequireAuth/RequireAuth";
+import AddReview from "./Pages/AddReview/AddReview";
+import EmailVerify from "./Pages/EmailVerify/EmailVerify";
 
 function App() {
   return (
@@ -21,6 +25,12 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/addreview" element={
+          <RequireAuth>
+            <AddReview></AddReview>
+          </RequireAuth>
+        }></Route>
+        <Route path="/emailverify" element={<EmailVerify></EmailVerify>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToTop></ToTop>
