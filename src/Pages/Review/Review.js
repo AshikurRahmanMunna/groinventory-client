@@ -11,7 +11,7 @@ const Review = ({review}) => {
             <img className='mx-auto' src={img} alt={name} />
             <h2>{name}</h2>
             <p><small>{desc}</small></p>
-            <Rating initialRating={5} emptySymbol={<FontAwesomeIcon style={{color: 'lightgray'}} icon={faStar} />} fullSymbol={<FontAwesomeIcon style={{color: 'orange'}} icon={faStar} />} readonly />
+            <Rating initialRating={rating} emptySymbol={<FontAwesomeIcon style={{color: 'lightgray'}} icon={faStar} />} fullSymbol={<FontAwesomeIcon style={{color: 'orange'}} icon={faStar} />} readonly />
         </div>
     );
 };

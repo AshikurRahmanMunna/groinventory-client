@@ -3,6 +3,5 @@
     font-family: 'Poppins', sans-serif;
 }
 .custom-nav {
-    position: sticky;
-    top: 0;
+    background: white;
 }

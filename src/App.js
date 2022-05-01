@@ -10,6 +10,7 @@ import Login from "./Pages/Login/Login";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Register from "./Pages/Register/Register";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToTop></ToTop>
+      <ToastContainer></ToastContainer>
       <Footer></Footer>
     </div>
   );
