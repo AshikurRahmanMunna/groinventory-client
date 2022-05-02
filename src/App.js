@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from "./Pages/Shared/RequireAuth/RequireAuth";
 import AddReview from "./Pages/AddReview/AddReview";
 import EmailVerify from "./Pages/EmailVerify/EmailVerify";
+import InventoryItem from "./Pages/InventoryItem/InventoryItem";
 
 function App() {
   return (
@@ -28,6 +29,11 @@ function App() {
         <Route path="/addreview" element={
           <RequireAuth>
             <AddReview></AddReview>
+          </RequireAuth>
+        }></Route>
+        <Route path="/inventory/:id" element={
+          <RequireAuth>
+            <InventoryItem></InventoryItem>
           </RequireAuth>
         }></Route>
         <Route path="/emailverify" element={<EmailVerify></EmailVerify>}></Route>

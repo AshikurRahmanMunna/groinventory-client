@@ -1,0 +1,43 @@
+.item-card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  height: 600px;
+}
+.item-card-body::-webkit-scrollbar {
+  width: 10px;
+}
+.item-card-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.item-card-body::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.item-card-body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.item-card-body {
+  height: 180px;
+  overflow-y: auto;
+}
+.item-card img {
+  border-radius: 20px;
+}
+.item-card p {
+  margin-bottom: 0;
+}
+.item-card button {
+  margin-top: 10px;
+  background: transparent;
+  border: 2px solid black;
+  padding: 0.5rem 3rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  width: 100%;
+}
+.item-card button:hover {
+  background: #ff7800;
+  color: white;
+}

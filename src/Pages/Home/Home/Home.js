@@ -1,5 +1,6 @@
 import React from 'react';
-import Reviews from '../../Reviews/Reviews';
+import Reviews from '../Reviews/Reviews';
+import Items from '../Items/Items';
 import './Home.css';
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
                     <button className='btn-banner'>Items</button>
                 </div>
             </div>
+            <Items></Items>
             <Reviews></Reviews>
         </div>
     );
