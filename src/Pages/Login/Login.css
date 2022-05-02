@@ -11,7 +11,7 @@
     border-radius: 20px;
     box-shadow: 15px 15px 15px lightgray;
 }
-.form input:not([type=checkbox]) {
+.form input:not([type=checkbox]), .form select {
     display: block;
     margin-bottom: 20px;
     border: 1px solid #f5f5f5;

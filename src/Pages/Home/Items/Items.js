@@ -10,7 +10,7 @@ const Items = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios.get("http://localhost:5000/items").then((res) => {
-      setItems(res.data);
+      setItems(res.data.slice(0, 6));
     });
   }, []);
   console.log(items);
@@ -23,7 +23,7 @@ const Items = () => {
                 items.map(item => <Item key={item._id} item={item}></Item>)
               }
           </div>
-          <button onClick={() => navigate('/inventory')} className="btn-custom mx-auto d-block my-3">Manage Inventories</button>
+          <button onClick={() => navigate('/inventory/manage')} className="btn-custom mx-auto d-block my-3">Manage Inventories</button>
       </Container>
     </div>
   );

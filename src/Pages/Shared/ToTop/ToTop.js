@@ -1,4 +1,4 @@
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleUp, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import './ToTop.css';
@@ -16,7 +16,7 @@ const ToTop = () => {
     return (
         <div className={`to-top ${hide ? '' : 'd-none'}`}>
             <a href="#">
-                <FontAwesomeIcon icon={faAngleUp} />
+                <FontAwesomeIcon icon={faAngleDoubleUp} beatFade />
             </a>
         </div>
     );

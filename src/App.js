@@ -16,6 +16,8 @@ import RequireAuth from "./Pages/Shared/RequireAuth/RequireAuth";
 import AddReview from "./Pages/AddReview/AddReview";
 import EmailVerify from "./Pages/EmailVerify/EmailVerify";
 import InventoryItem from "./Pages/InventoryItem/InventoryItem";
+import ManageInventory from "./Pages/ManageInventory/ManageInventory";
+import AddInventory from "./Pages/AddInventory/AddInventory";
 
 function App() {
   return (
@@ -38,7 +40,12 @@ function App() {
         }></Route>
         <Route path="/inventory/manage" element={
           <RequireAuth>
-            <InventoryItem></InventoryItem>
+            <ManageInventory></ManageInventory>
+          </RequireAuth>
+        }></Route>
+        <Route path="/inventory/add" element={
+          <RequireAuth>
+            <AddInventory></AddInventory>
           </RequireAuth>
         }></Route>
         <Route path="/emailverify" element={<EmailVerify></EmailVerify>}></Route>
