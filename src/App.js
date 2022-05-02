@@ -36,6 +36,11 @@ function App() {
             <InventoryItem></InventoryItem>
           </RequireAuth>
         }></Route>
+        <Route path="/inventory/manage" element={
+          <RequireAuth>
+            <InventoryItem></InventoryItem>
+          </RequireAuth>
+        }></Route>
         <Route path="/emailverify" element={<EmailVerify></EmailVerify>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>

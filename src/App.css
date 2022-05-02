@@ -11,7 +11,7 @@
 .text-custom-primary {
   color: #FF7800 !important;
 }
-.btn-banner {
+.btn-custom {
   background: transparent;
   border: 2px solid black;
   padding: 0.5rem 3rem;
@@ -19,7 +19,7 @@
   border-radius: 8px;
   transition: all .2s ease-in-out;
 }
-.btn-banner:hover {
+.btn-custom:hover {
   background: #FF7800;
   color: white;
 }

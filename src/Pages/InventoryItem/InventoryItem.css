@@ -1,0 +1,35 @@
+.inventory-item {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+.inventory-item img {
+    border-radius: 20px;
+}
+.restock-form input:not([type="submit"]) {
+    display: block;
+    margin-bottom: 10px;
+    background: #f5f5f5;
+    width: 250px;
+    height: 40px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+.restock-form input:not([type="submit"]):focus {
+    border: none;
+}
+.restock-form input[type="submit"] {
+    display: block;
+    width: 250px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid black;
+    height: 40px;
+    transition: all .3s ease-in-out;
+}
+.restock-form input[type="submit"]:hover {
+    background: #ff7800;
+    color: white;
+}

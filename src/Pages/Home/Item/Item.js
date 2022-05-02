@@ -22,7 +22,7 @@ const Item = ({ item }) => {
         </p>
         <p>Supplier: {supplierName}</p>
       </div>
-      <button onClick={() => navigate(`inventory/${_id}`)}>Update</button>
+      <button onClick={() => navigate(`inventory/${_id}`)}>Stock Update</button>
     </div>
   );
 };
