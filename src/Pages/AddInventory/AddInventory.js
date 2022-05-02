@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { confirmAlert } from "react-confirm-alert";
 
 const AddInventory = () => {
   const navigate = useNavigate();
