@@ -12,6 +12,7 @@ import {
 import auth from "../../firebase.init";
 import { toast } from "react-toastify";
 import Loading from "../Shared/Loading/Loading";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const emailRef = useRef();
@@ -94,6 +95,7 @@ const Login = () => {
             <button onClick={passwordReset} className="text-decoration-none text-muted btn btn-link">
               Forgot Password
             </button>
+            <SocialLogin></SocialLogin>
             <p className="form-toggle">
               Not A Member?{" "}
               <span

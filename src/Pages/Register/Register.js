@@ -8,6 +8,7 @@ import { useUpdateProfile } from "react-firebase-hooks/auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Loading from "../Shared/Loading/Loading";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ const Register = () => {
     <div className="full-height-center">
       <div>
         <Container>
-          <div className="form">
+          <div className="form my-5">
             <div className="text-center">
               <Link to="/">
                 <img
@@ -87,6 +88,7 @@ const Register = () => {
               />
             </form>
             <div style={{ width: '400px' }}>{errorElement}</div>
+            <SocialLogin></SocialLogin>
             <p className="form-toggle">
               Have An Account?{" "}
               <span

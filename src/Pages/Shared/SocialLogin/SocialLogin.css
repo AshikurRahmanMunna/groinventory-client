@@ -1,0 +1,23 @@
+.social-login {
+    text-align: center;
+}
+.social-login button {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ff7800;
+    border-radius: 50%;
+    background: #ff7800;
+    transition: all .3s ease-in-out;
+}
+.social-login button svg path {
+    fill: white;
+}
+.social-login button svg {
+    font-size: 1.2rem;
+}
+.social-login button:hover svg path {
+    fill: black;
+}
+.social-login button:hover {
+    background: white;
+}
