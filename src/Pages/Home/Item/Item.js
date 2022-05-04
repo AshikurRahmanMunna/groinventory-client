@@ -20,6 +20,9 @@ const Item = ({ item }) => {
           Quantity: {quantity}
           {unit}
         </p>
+        <p>
+          Total Price: {quantity * price}Tk
+        </p>
         <p>Supplier: {supplierName}</p>
       </div>
       <button onClick={() => navigate(`inventory/${_id}`)}>Stock Update</button>

@@ -6,7 +6,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import { confirmAlert } from "react-confirm-alert";
 
 const AddInventory = () => {
   const navigate = useNavigate();
@@ -16,8 +15,8 @@ const AddInventory = () => {
     const name = event.target.name.value;
     const supplierName = event.target.supplierName.value;
     const shortDesc = event.target.shortDesc.value;
-    const price = parseFloat(event.target.price.value);
-    const quantity = parseFloat(event.target.quantity.value);
+    const price = parseInt(event.target.price.value);
+    const quantity = parseInt(event.target.quantity.value);
     const unit = event.target.unit.value;
     const img = event.target.img.value;
     axios
@@ -33,7 +32,7 @@ const AddInventory = () => {
       })
       .then((res) => {
         console.log(res.data)
-        if (res.data.acknowledged === true) {
+        if (res?.data?.acknowledged === true) {
           toast.success("Item Added Successfully", {
             position: "top-right",
             autoClose: 5000,
@@ -45,7 +44,7 @@ const AddInventory = () => {
             theme: "dark",
           });
           event.target.reset();
-          navigate('/');
+          navigate('/inventory/manage');
         }
       });
   };
@@ -72,12 +71,14 @@ const AddInventory = () => {
                 type="text"
                 name="name"
                 placeholder="Product Name"
+                autoComplete="off"
                 required
               />
-              <input
+              <textarea
                 type="text"
                 name="shortDesc"
                 placeholder="Short Description"
+                autoComplete="off"
                 required
               />
               <input type="number" name="price" placeholder="Price" required />
@@ -85,6 +86,7 @@ const AddInventory = () => {
                 type="number"
                 name="quantity"
                 placeholder="quantity"
+                autoComplete="off"
                 required
               />
               <select name="unit" required>
@@ -96,9 +98,10 @@ const AddInventory = () => {
                 type="text"
                 name="supplierName"
                 placeholder="Supplier Name"
+                autoComplete="off"
                 required
               />
-              <input type="url" name="img" placeholder="Image URL" required />
+              <input type="url" name="img" placeholder="Image URL" autoComplete="off" required />
               <input type="submit" value="Add Item" />
             </form>
           </div>

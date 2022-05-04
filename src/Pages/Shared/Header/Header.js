@@ -15,13 +15,17 @@ const Header = () => {
   const location = useLocation();
   const pathname = location.pathname;
   useEffect(() => {
-    if (pathname === "/login" || pathname === "/register") {
+    if (
+      pathname === "/login" ||
+      pathname === "/register" ||
+      pathname === "/inventory/add"
+    ) {
       setHideNav(true);
     } else {
       setHideNav(false);
     }
   }, [pathname]);
-  console.log(user)
+  console.log(user);
   return (
     <div>
       <Navbar expand="lg" className={`custom-nav ${hideNav ? "d-none" : ""}`}>
@@ -36,12 +40,34 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
-              <Nav.Link as={Link} to="/">
-                Home
-              </Nav.Link>
-              <Nav.Link as={Link} to="/#items">
-                Items
-              </Nav.Link>
+              {user ? (
+                <>
+                  <Nav.Link as={Link} to="/">
+                    Home
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/#items">
+                    Items
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/inventory/manage">
+                    Manage Item
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/inventory/add">
+                    Add Item
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/inventory/myitems">
+                    My Items
+                  </Nav.Link>
+                </>
+              ) : (
+                <>
+                  <Nav.Link as={Link} to="/">
+                    Home
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/#items">
+                    Items
+                  </Nav.Link>
+                </>
+              )}
             </Nav>
             <Nav className="ms-auto">
               {user ? (

@@ -51,6 +51,7 @@ const ManageInventoryRow = ({ item, setItems, items }) => {
       </td>
       <td className="text-end">{quantity}</td>
       <td className="text-end">{price}</td>
+      <td className="text-end">{price * quantity}</td>
       <td>{supplierName}</td>
       <td>
         <button

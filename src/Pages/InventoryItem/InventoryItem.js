@@ -59,6 +59,9 @@ const InventoryItem = () => {
         <p>
           Quantity: {quantity} {unit}
         </p>
+        <p>
+          Total Stock Price: {quantity * price}
+        </p>
         <p>Supplier: {supplierName}</p>
         <button onClick={handleDeliver} className="btn-custom mb-3">
           Delivered

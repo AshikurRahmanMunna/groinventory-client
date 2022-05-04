@@ -23,6 +23,7 @@ const ManageInventory = () => {
                 <th>Email</th>
                 <th>Quantity</th>
                 <th>Price</th>
+                <th>Total</th>
                 <th>Supplier</th>
                 <th>Options</th>
               </tr>
