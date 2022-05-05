@@ -26,7 +26,8 @@ const Footer = () => {
     if (
       pathname === "/login" ||
       pathname === "/register" ||
-      pathname === "/inventory/add"
+      pathname === "/inventory/add" ||
+      pathname === "/reviews/add"
     ) {
       setHideFooter(true);
     } else {

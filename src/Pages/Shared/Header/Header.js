@@ -18,7 +18,8 @@ const Header = () => {
     if (
       pathname === "/login" ||
       pathname === "/register" ||
-      pathname === "/inventory/add"
+      pathname === "/inventory/add" ||
+      pathname === "/reviews/add"
     ) {
       setHideNav(true);
     } else {
@@ -73,11 +74,11 @@ const Header = () => {
               {user ? (
                 <NavDropdown title={user?.displayName} id="basic-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">
-                    Another action
-                  </NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/reviews/add">
-                    Add Your Review
+                    Add Review
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/reviews">
+                    My Reviews
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={() => signOut(auth)}>
