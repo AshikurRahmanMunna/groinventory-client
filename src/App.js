@@ -18,6 +18,7 @@ import EmailVerify from "./Pages/EmailVerify/EmailVerify";
 import InventoryItem from "./Pages/InventoryItem/InventoryItem";
 import ManageInventory from "./Pages/ManageInventory/ManageInventory";
 import AddInventory from "./Pages/AddInventory/AddInventory";
+import MyItems from "./Pages/MyItems/MyItems";
 
 function App() {
   return (
@@ -46,6 +47,11 @@ function App() {
         <Route path="/inventory/add" element={
           <RequireAuth>
             <AddInventory></AddInventory>
+          </RequireAuth>
+        }></Route>
+        <Route path="/inventory/myitems" element={
+          <RequireAuth>
+            <MyItems></MyItems>
           </RequireAuth>
         }></Route>
         <Route path="/emailverify" element={<EmailVerify></EmailVerify>}></Route>

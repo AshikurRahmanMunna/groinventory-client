@@ -1,46 +1,48 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import DeleteConfirm from "../Shared/Confirm/Confirm";
 import "./ManageInventoryRow.css";
 
 const ManageInventoryRow = ({ item, setItems, items }) => {
   const { name, email, quantity, price, supplierName, _id } = item;
+  const [confirmShow, setConfirmShow] = useState(false);
   const navigate = useNavigate();
   const handleDelete = () => {
-    const confirm = window.confirm('Do you really want to delete this item');
-    if (confirm) {
-      axios.delete(`http://localhost:5000/items/${_id}`).then((res) => {
-        console.log(res.data);
-        if (res?.data?.deletedCount > 0) {
-          const remaining = items.filter((item) => item._id !== _id);
-          setItems(remaining);
-          toast.success("Item Deleted Successfully", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
-        }
-      })
-    }
-    else {
-      toast.error("Popup Close By User", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-    }
+    setConfirmShow(false);
+    axios.delete(`http://localhost:5000/items/${_id}`).then((res) => {
+      console.log(res.data);
+      if (res?.data?.deletedCount > 0) {
+        const remaining = items.filter((item) => item._id !== _id);
+        setItems(remaining);
+        toast.success("Item Deleted Successfully", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+    });
   };
+  const handleNotDelete = () => {
+    setConfirmShow(false);
+    toast.error("Popup Close By User", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
   return (
     <tr>
       <td>{name}</td>
@@ -60,10 +62,19 @@ const ManageInventoryRow = ({ item, setItems, items }) => {
         >
           Update Stock
         </button>
-        <button onClick={handleDelete} className="btn btn-danger">
+        <button onClick={() => setConfirmShow(true)} className="btn btn-danger">
           Delete
         </button>
       </td>
+      <DeleteConfirm
+        show={confirmShow}
+        onConfirm={handleDelete}
+        onHide={handleNotDelete}
+        heading={`${name}`}
+        body={`Do You Really Want To Delete ${name}`}
+        closeButton="Close"
+        okButton="Delete"
+      ></DeleteConfirm>
     </tr>
   );
 };
