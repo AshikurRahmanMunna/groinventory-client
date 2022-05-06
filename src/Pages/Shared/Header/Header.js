@@ -19,7 +19,8 @@ const Header = () => {
       pathname === "/login" ||
       pathname === "/register" ||
       pathname === "/inventory/add" ||
-      pathname === "/reviews/add"
+      pathname === "/reviews/add" ||
+      pathname === "/news/add"
     ) {
       setHideNav(true);
     } else {
@@ -73,7 +74,9 @@ const Header = () => {
             <Nav className="ms-auto">
               {user ? (
                 <NavDropdown title={user?.displayName} id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/news/add">
+                    Add News
+                  </NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/reviews/add">
                     Add Review
                   </NavDropdown.Item>

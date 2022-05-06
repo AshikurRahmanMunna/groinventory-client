@@ -27,7 +27,8 @@ const Footer = () => {
       pathname === "/login" ||
       pathname === "/register" ||
       pathname === "/inventory/add" ||
-      pathname === "/reviews/add"
+      pathname === "/reviews/add" ||
+      pathname === "/news/add"
     ) {
       setHideFooter(true);
     } else {

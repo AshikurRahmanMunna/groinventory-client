@@ -20,6 +20,7 @@ import ManageInventory from "./Pages/ManageInventory/ManageInventory";
 import AddInventory from "./Pages/AddInventory/AddInventory";
 import MyItems from "./Pages/MyItems/MyItems";
 import MyReviews from "./Pages/MyReviews/MyReviews";
+import AddNews from "./Pages/AddNews/AddNews";
 
 function App() {
   return (
@@ -63,6 +64,11 @@ function App() {
         <Route path="/reviews/add" element={
           <RequireAuth>
             <AddReview></AddReview>
+          </RequireAuth>
+        }></Route>
+        <Route path="/news/add" element={
+          <RequireAuth>
+            <AddNews></AddNews>
           </RequireAuth>
         }></Route>
         <Route path="/emailverify" element={<EmailVerify></EmailVerify>}></Route>

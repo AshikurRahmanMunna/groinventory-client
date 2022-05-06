@@ -1,0 +1,9 @@
+.news-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    height: 100%;
+}
+.news-card img {
+    border-radius: 10px;
+}
