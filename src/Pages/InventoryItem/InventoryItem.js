@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import "./InventoryItem.css";
 
 const InventoryItem = () => {
@@ -14,7 +15,8 @@ const InventoryItem = () => {
       .then((res) => setItem(res.data));
   }, [id]);
   const handleDeliver = () => {
-    axios
+    if(quantity > 0) {
+      axios
       .put(`http://localhost:5000/item/${id}`, {
         quantity: item.quantity - 1,
       })
@@ -25,6 +27,19 @@ const InventoryItem = () => {
             .then((res) => setItem(res.data));
         }
       });
+    }
+    else {
+      toast.error("You Don't Have Enough Item", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   };
   const handleRestock = event => {
     event.preventDefault();
