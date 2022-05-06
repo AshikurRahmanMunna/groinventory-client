@@ -4,10 +4,10 @@ import React from 'react';
 import Rating from 'react-rating';
 import './Review.css';
 
-const Review = ({review}) => {
+const Review = ({review, spacing}) => {
     const {name, img, desc, rating} = review;
     return (
-        <div className='review-card'>
+        <div className={`review-card ${spacing}`}>
             <img className='mx-auto' src={img} alt={name} />
             <h5>{name}</h5>
             <p><small>{desc}</small></p>

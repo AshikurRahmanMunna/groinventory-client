@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import auth from '../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import Review from '../Home/Review/Review';
 
 const MyReviews = () => {
+    const [reviews, setReviews] = useState([]);
+    const [user, loading, error] = useAuthState(auth);
+    useEffect(() => {
+        axios.get(`http://localhost:5000/review?email=${user.email}`)
+        .then(res => setReviews(res?.data));
+    }, [user])
     return (
-        <div>
-            <h2>This is my reviews</h2>
+        <div className='full-height-center align-items-start mt-5'>
+            <div className='w-50'>
+                <h2 className='text-center'>My <span className='text-custom-primary'>Reviews</span></h2>
+                {
+                    reviews.map(review => <Review spacing={'mb-4'} key={review._id} review={review}></Review>)
+                }
+            </div>
         </div>
     );
 };
