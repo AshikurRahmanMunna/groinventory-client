@@ -6,7 +6,7 @@ This is a inventory management website named GroInventory. We can manage our ite
 - [Manage items](https://groinventoy.web.app/manageitems)
 - [See item details](https://groinventoy.web.app)
 - [Deliver items](https://groinventoy.web.app)
-- [Restock items]((https://groinventoy.web.app))
+- [Restock items](https://groinventoy.web.app)
 - [See my items](https://groinventoy.web.app/inventory/myitems)
 - [Manage Inventory](https://groinventoy.web.app/inventory/manage)
 
