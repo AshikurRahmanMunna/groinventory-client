@@ -9,6 +9,15 @@ const InventoryItem = () => {
   const [item, setItem] = useState({});
   const { _id, name, img, shortDesc, price, quantity, supplierName, unit } =
     item;
+  const [sold, setSold] = useState('');
+    useEffect(() => {
+      if(quantity === 0) {
+        setSold(true);
+      }
+      else {
+        setSold(false);
+      }
+    }, [quantity])
   useEffect(() => {
     axios
       .get(`http://localhost:5000/item/${id}`)
@@ -65,6 +74,9 @@ const InventoryItem = () => {
       <div className="col-md-6 ps-5">
         <h2 className="text-custom-primary">{name}</h2>
         <h6>Id: {_id}</h6>
+        {
+          sold ? <p>Availability: <span className="text-danger">Sold</span></p> : <p>Availability: <span className="text-success">Available</span></p>
+        }
         <p>
           <small>{shortDesc}</small>
         </p>
