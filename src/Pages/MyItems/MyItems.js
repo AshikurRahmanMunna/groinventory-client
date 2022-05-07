@@ -1,12 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Item from "../Home/Item/Item";
+import ManageInventoryRow from "../ManageInventoryRow/ManageInventoryRow";
 
 const MyItems = () => {
   const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   useEffect(() => {
     axios
@@ -16,18 +19,34 @@ const MyItems = () => {
       });
   }, [user]);
   return (
-    <div className="full-height-center">
-      <div className="my-5">
-        <h2 className="text-center">
-          My <span className="text-custom-primary">Items</span>
-        </h2>
-        <Container>
-          <div className="items-container">
-            {items.map((item) => (
-              <Item key={item._id} item={item}></Item>
-            ))}
-          </div>
-        </Container>
+    <div className="bg-white">
+      <div className="container bg-white full-height-center">
+        <div>
+          <h2 className="text-center">My <span className="text-custom-primary">Items</span></h2>
+          <Table striped bordered hover responsive>
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Email</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Supplier</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              {items.map((item) => (
+                <ManageInventoryRow
+                  key={item._id}
+                  item={item}
+                  setItems={setItems}
+                  items={items}
+                ></ManageInventoryRow>
+              ))}
+            </tbody>
+          </Table>
+        </div>
       </div>
     </div>
   );

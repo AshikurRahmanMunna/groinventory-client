@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import ManageInventoryRow from "../ManageInventoryRow/ManageInventoryRow";
-import DeleteConfirm from "../Shared/Confirm/Confirm";
 
 const ManageInventory = () => {
   const [items, setItems] = useState([]);

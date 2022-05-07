@@ -20,7 +20,8 @@ const Header = () => {
       pathname === "/register" ||
       pathname === "/inventory/add" ||
       pathname === "/reviews/add" ||
-      pathname === "/news/add"
+      pathname === "/news/add" ||
+      pathname === '*'
     ) {
       setHideNav(true);
     } else {
