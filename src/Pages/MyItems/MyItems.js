@@ -13,7 +13,7 @@ const MyItems = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/itemsByEmail?email=${user.email}`)
+      .get(`https://secret-wildwood-43092.herokuapp.com/itemsByEmail?email=${user.email}`)
       .then((res) => {
         setItems(res.data);
       });

@@ -20,19 +20,19 @@ const InventoryItem = () => {
     }, [quantity])
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/item/${id}`)
+      .get(`https://secret-wildwood-43092.herokuapp.com/item/${id}`)
       .then((res) => setItem(res.data));
   }, [id]);
   const handleDeliver = () => {
     if(quantity > 0) {
       axios
-      .put(`http://localhost:5000/item/${id}`, {
+      .put(`https://secret-wildwood-43092.herokuapp.com/item/${id}`, {
         quantity: item.quantity - 1,
       })
       .then((res) => {
         if (res?.data?.acknowledged === true) {
           axios
-            .get(`http://localhost:5000/item/${id}`)
+            .get(`https://secret-wildwood-43092.herokuapp.com/item/${id}`)
             .then((res) => setItem(res.data));
         }
       });
@@ -54,13 +54,13 @@ const InventoryItem = () => {
     event.preventDefault();
     const restockAmount = event.target.restock.value;
     axios
-      .put(`http://localhost:5000/item/${id}`, {
+      .put(`https://secret-wildwood-43092.herokuapp.com/item/${id}`, {
         quantity: item.quantity + parseFloat(restockAmount),
       })
       .then((res) => {
         if (res?.data?.acknowledged === true) {
           axios
-            .get(`http://localhost:5000/item/${id}`)
+            .get(`https://secret-wildwood-43092.herokuapp.com/item/${id}`)
             .then((res) => setItem(res.data));
         }
       });

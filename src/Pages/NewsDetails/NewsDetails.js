@@ -9,7 +9,7 @@ const NewsDetails = () => {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/newsDetails/${id}`)
+      .get(`https://secret-wildwood-43092.herokuapp.com/newsDetails/${id}`)
       .then((res) => setNews(res.data));
   }, []);
   return (

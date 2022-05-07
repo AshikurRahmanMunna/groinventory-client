@@ -8,7 +8,7 @@ const ManageInventory = () => {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    axios.get("http://localhost:5000/items").then((res) => setItems(res.data));
+    axios.get("https://secret-wildwood-43092.herokuapp.com/items").then((res) => setItems(res.data));
   }, []);
   return (
     <div className="bg-white">

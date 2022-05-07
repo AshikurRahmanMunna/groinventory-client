@@ -7,7 +7,7 @@ import "./News.css";
 const News = () => {
   const [news, setNews] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/news").then((res) => setNews(res.data));
+    axios.get("https://secret-wildwood-43092.herokuapp.com/news").then((res) => setNews(res.data));
   }, []);
   return (
     <Container>

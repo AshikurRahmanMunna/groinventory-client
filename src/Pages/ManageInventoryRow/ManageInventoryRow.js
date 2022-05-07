@@ -11,7 +11,7 @@ const ManageInventoryRow = ({ item, setItems, items }) => {
   const navigate = useNavigate();
   const handleDelete = () => {
     setConfirmShow(false);
-    axios.delete(`http://localhost:5000/items/${_id}`).then((res) => {
+    axios.delete(`https://secret-wildwood-43092.herokuapp.com/items/${_id}`).then((res) => {
       console.log(res.data);
       if (res?.data?.deletedCount > 0) {
         const remaining = items.filter((item) => item._id !== _id);

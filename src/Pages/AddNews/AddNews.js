@@ -35,7 +35,7 @@ const AddNews = () => {
       date,
       time,
     };
-    axios.post("http://localhost:5000/news", news).then((res) => {
+    axios.post("https://secret-wildwood-43092.herokuapp.com/news", news).then((res) => {
       if (res.data.acknowledged === true) {
         toast.success("News Added Successfully", {
           position: "top-right",

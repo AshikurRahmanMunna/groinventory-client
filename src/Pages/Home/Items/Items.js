@@ -9,7 +9,7 @@ const Items = () => {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    axios.get("http://localhost:5000/items").then((res) => {
+    axios.get("https://secret-wildwood-43092.herokuapp.com/items").then((res) => {
       setItems(res.data.slice(0, 6));
     });
   }, []);

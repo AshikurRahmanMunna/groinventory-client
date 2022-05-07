@@ -20,7 +20,7 @@ const AddInventory = () => {
     const unit = event.target.unit.value;
     const img = event.target.img.value;
     axios
-      .post("http://localhost:5000/items", {
+      .post("https://secret-wildwood-43092.herokuapp.com/items", {
         name,
         img,
         shortDesc,

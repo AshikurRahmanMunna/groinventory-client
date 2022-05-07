@@ -47,7 +47,7 @@ const Reviews = () => {
   };
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/reviews").then((res) => {
+    axios.get("https://secret-wildwood-43092.herokuapp.com/reviews").then((res) => {
       setReviews(res.data);
     });
   }, []);

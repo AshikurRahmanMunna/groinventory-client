@@ -20,7 +20,7 @@ const AddReview = () => {
     const email = user?.email;
     const name = user?.displayName;
     axios
-      .post(`http://localhost:5000/reviews`, {
+      .post(`https://secret-wildwood-43092.herokuapp.com/reviews`, {
         name,
         email,
         img,
