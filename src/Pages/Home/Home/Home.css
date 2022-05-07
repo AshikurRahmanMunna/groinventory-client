@@ -8,3 +8,11 @@
 .banner h2 {
     font-weight: 600;
 }
+.banner-text {
+    width: 50%;
+}
+@media only screen and (max-width: 576px) {
+    .banner-text {
+        width: 100%;
+    }
+}

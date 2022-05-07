@@ -49,7 +49,7 @@ const Footer = () => {
             <p className="text-muted w-75 footer-text">
               GroInventory is a application to manage your products securely.
             </p>
-            <div className="social">
+            <div className="social mb-3">
               <div className="footer-social">
                 <a
                   href="https://www.facebook.com/ashikurrahman.munna.90"
