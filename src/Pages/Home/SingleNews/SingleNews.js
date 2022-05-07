@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SingleNews.css';
 
 const SingleNews = ({news}) => {
-    const {title, img, desc, date, time} = news;
+    const {title, img, desc, date, time, _id} = news;
+    const navigate = useNavigate();
     return (
-        <div className='news-card'>
+        <div onClick={() => navigate(`/news/${_id}`)} className='news-card'>
             <img className='img-fluid w-100' src={img} alt="" />
             <h5 className='mt-2'>{title}</h5>
             {desc.length > 130 ? 

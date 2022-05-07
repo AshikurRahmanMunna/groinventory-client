@@ -14,7 +14,7 @@ const Item = ({ item }) => {
           <small>{shortDesc}</small>
         </p>
         <p>
-          BDT: {price}/{unit}
+          Price: {price}/{unit}
         </p>
         <p>
           Quantity: {quantity}

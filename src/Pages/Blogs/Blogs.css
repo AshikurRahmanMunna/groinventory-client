@@ -1,0 +1,9 @@
+.blog-question {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.blog-question p {
+    text-align: justify;
+}

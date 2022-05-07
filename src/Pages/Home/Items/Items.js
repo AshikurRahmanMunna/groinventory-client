@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Item from "../Item/Item";
 import './Items.css';
 
@@ -23,7 +23,9 @@ const Items = () => {
                 items.map(item => <Item key={item._id} item={item}></Item>)
               }
           </div>
-          <button onClick={() => navigate('/inventory/manage')} className="btn-custom mx-auto d-block my-3">Manage Inventories</button>
+          <div className="d-block w-100 text-center mt-3">
+            <Link to='/inventory/manage' className="btn-custom my-3 text-black text-decoration-none">Manage Inventory</Link>
+          </div>
       </Container>
     </div>
   );

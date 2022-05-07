@@ -22,6 +22,8 @@ import MyItems from "./Pages/MyItems/MyItems";
 import MyReviews from "./Pages/MyReviews/MyReviews";
 import AddNews from "./Pages/AddNews/AddNews";
 import ManageItems from "./Pages/ManageItems/ManageItems";
+import Blogs from "./Pages/Blogs/Blogs";
+import NewsDetails from "./Pages/NewsDetails/NewsDetails";
 
 function App() {
   return (
@@ -78,6 +80,8 @@ function App() {
           </RequireAuth>
         }></Route>
         <Route path="/emailverify" element={<EmailVerify></EmailVerify>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/news/:id" element={<NewsDetails></NewsDetails>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToTop></ToTop>
