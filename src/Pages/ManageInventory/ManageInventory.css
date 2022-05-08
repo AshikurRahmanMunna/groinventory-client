@@ -1,0 +1,9 @@
+.table-scroll {
+    width: 95vw;
+    overflow-x: auto;
+}
+/* @media only screen and (max-width: 576px) {
+    .table-scroll {
+        font-size: 10px;
+    }
+} */

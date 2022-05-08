@@ -11,23 +11,25 @@ const ManageInventoryRow = ({ item, setItems, items }) => {
   const navigate = useNavigate();
   const handleDelete = () => {
     setConfirmShow(false);
-    axios.delete(`https://secret-wildwood-43092.herokuapp.com/items/${_id}`).then((res) => {
-      console.log(res.data);
-      if (res?.data?.deletedCount > 0) {
-        const remaining = items.filter((item) => item._id !== _id);
-        setItems(remaining);
-        toast.success("Item Deleted Successfully", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-      }
-    });
+    axios
+      .delete(`https://secret-wildwood-43092.herokuapp.com/items/${_id}`)
+      .then((res) => {
+        console.log(res.data);
+        if (res?.data?.deletedCount > 0) {
+          const remaining = items.filter((item) => item._id !== _id);
+          setItems(remaining);
+          toast.success("Item Deleted Successfully", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+        }
+      });
   };
   const handleNotDelete = () => {
     setConfirmShow(false);
@@ -56,15 +58,20 @@ const ManageInventoryRow = ({ item, setItems, items }) => {
       <td className="text-end">{price * quantity}</td>
       <td>{supplierName}</td>
       <td>
-        <button
-          onClick={() => navigate(`/inventory/${_id}`)}
-          className="update-stock"
-        >
-          Update Stock
-        </button>
-        <button onClick={() => setConfirmShow(true)} className="btn btn-danger">
-          Delete
-        </button>
+        <div className="table-buttons">
+          <button
+            onClick={() => navigate(`/inventory/${_id}`)}
+            className="update-stock"
+          >
+            Update Stock
+          </button>
+          <button
+            onClick={() => setConfirmShow(true)}
+            className="btn btn-danger"
+          >
+            Delete
+          </button>
+        </div>
       </td>
       <DeleteConfirm
         show={confirmShow}

@@ -7,3 +7,16 @@
     margin-right: 20px;
     border-radius: 5px;
 }
+@media only screen and (max-width: 576px) {
+    .table-buttons {
+        display: flex;
+    }
+    .update-stock {
+        font-size: 10px;
+        height: 30px;
+    }
+    .table-buttons .btn-danger {
+        height: 30px !important;
+        font-size: 10px !important;
+    }
+}
