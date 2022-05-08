@@ -10,6 +10,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Loading from "../Shared/Loading/Loading";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -46,6 +47,14 @@ const Register = () => {
       theme: "dark",
     });
     await updateProfile({ displayName: name });
+    await axios
+      .post("https://secret-wildwood-43092.herokuapp.com/user", {email})
+      .then((res) =>
+        {
+          localStorage.setItem("accessToken", res?.data?.accessToken);
+          navigate(from, {replace: true});
+        }
+      );
   };
   // if user available navigate him
   if (user) {

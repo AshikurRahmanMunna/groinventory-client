@@ -13,28 +13,31 @@ const MyItems = () => {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    // get user items
-    try {
-      axiosPrivate
-      .get(`https://secret-wildwood-43092.herokuapp.com/itemsByEmail?email=${user.email}`)
-      .then((res) => {
-        setItems(res.data);
-      });
-    }
-    catch(error) {
-      console.log(error.message)
-      if(error.response.status === 401 || error.response.status === 403) {
-        signOut(auth);
-        navigate('/login');
-        localStorage.removeItem('accessToken');
+    const getUserItems = async () => {
+      // get user items
+      try {
+        const {data} = await axiosPrivate.get(
+          `https://secret-wildwood-43092.herokuapp.com/itemsByEmail?email=${user.email}`
+        );
+        setItems(data);
+      } catch (error) {
+        console.log(error.message);
+        if (error.response.status === 401 || error.response.status === 403) {
+          signOut(auth);
+          navigate("/login");
+          localStorage.removeItem("accessToken");
+        }
       }
-    }
+    };
+    getUserItems();
   }, [user]);
   return (
     <div className="bg-white">
       <div className="container bg-white full-height-center">
         <div>
-          <h2 className="text-center">My <span className="text-custom-primary">Items</span></h2>
+          <h2 className="text-center">
+            My <span className="text-custom-primary">Items</span>
+          </h2>
           <Table striped bordered hover responsive>
             <thead>
               <tr>

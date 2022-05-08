@@ -1,7 +1,8 @@
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 import React from 'react';
-import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import './SocialLogin.css';
@@ -12,9 +13,21 @@ const SocialLogin = () => {
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/';
     const navigate = useNavigate();
-    if(userGoogle || userFacebook) {
-        navigate(from, {replace: true});
+    const [user, loading, error] = useAuthState(auth);
+    if(user) {
+        const {email} = user;
+        axios
+      .post("https://secret-wildwood-43092.herokuapp.com/user", {email})
+      .then((res) =>
+        {
+          localStorage.setItem("accessToken", res?.data?.accessToken);
+          navigate(from, {replace: true});
+        }
+      );
     }
+    // if(userGoogle || userFacebook) {
+    //     navigate(from, {replace: true});
+    // }
     if(errorFacebook) {
         console.log(errorFacebook);
     }
