@@ -42,7 +42,10 @@ const Login = () => {
     await axios
       .post("https://secret-wildwood-43092.herokuapp.com/user", {email})
       .then((res) =>
-        localStorage.setItem("accessToken", res?.data?.accessToken)
+        {
+          localStorage.setItem("accessToken", res?.data?.accessToken);
+          navigate(from, {replace: true});
+        }
       );
   };
   const passwordReset = () => {

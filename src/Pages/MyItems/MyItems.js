@@ -1,9 +1,9 @@
-import axios from "axios";
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import axiosPrivate from "../../api/axiosPrivate";
 import auth from "../../firebase.init";
 import Item from "../Home/Item/Item";
 import ManageInventoryRow from "../ManageInventoryRow/ManageInventoryRow";
@@ -11,15 +11,12 @@ import ManageInventoryRow from "../ManageInventoryRow/ManageInventoryRow";
 const MyItems = () => {
   const [user, loading, error] = useAuthState(auth);
   const [items, setItems] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     // get user items
     try {
-      axios
-      .get(`https://secret-wildwood-43092.herokuapp.com/itemsByEmail?email=${user.email}`, {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        }
-      })
+      axiosPrivate
+      .get(`https://secret-wildwood-43092.herokuapp.com/itemsByEmail?email=${user.email}`)
       .then((res) => {
         setItems(res.data);
       });
@@ -28,7 +25,7 @@ const MyItems = () => {
       console.log(error.message)
       if(error.response.status === 401 || error.response.status === 403) {
         signOut(auth);
-        navigator('/login');
+        navigate('/login');
         localStorage.removeItem('accessToken');
       }
     }
