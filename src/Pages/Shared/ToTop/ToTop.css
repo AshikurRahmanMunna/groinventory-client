@@ -1,7 +1,7 @@
 .to-top {
     position: fixed;
     bottom: 40px;
-    right: 40px;
+    left: 40px;
     background: lightgray;
     width: 60px;
     height: 60px;

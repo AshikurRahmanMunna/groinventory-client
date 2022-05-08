@@ -24,6 +24,7 @@ import AddNews from "./Pages/AddNews/AddNews";
 import ManageItems from "./Pages/ManageItems/ManageItems";
 import Blogs from "./Pages/Blogs/Blogs";
 import NewsDetails from "./Pages/NewsDetails/NewsDetails";
+import MessengerCustomerChat from "react-messenger-customer-chat/lib/MessengerCustomerChat";
 
 function App() {
   return (
@@ -84,6 +85,10 @@ function App() {
         <Route path="/news/:id" element={<NewsDetails></NewsDetails>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <MessengerCustomerChat
+        pageId="104722065573692"
+        appId="1168493543948897"
+      />
       <ToTop></ToTop>
       <ToastContainer></ToastContainer>
       <Footer></Footer>
