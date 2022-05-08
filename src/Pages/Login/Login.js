@@ -14,7 +14,6 @@ import { toast } from "react-toastify";
 import Loading from "../Shared/Loading/Loading";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import axios from "axios";
-import { async } from "@firebase/util";
 
 const Login = () => {
   const emailRef = useRef();

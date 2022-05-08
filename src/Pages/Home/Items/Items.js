@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import Loading from "../../Shared/Loading/Loading";
 import Item from "../Item/Item";
 import './Items.css';
 
@@ -13,6 +14,9 @@ const Items = () => {
       setItems(res.data.slice(0, 6));
     });
   }, []);
+    if(items.length === 0) {
+      return <Loading></Loading>;
+    }
   return (
     <div id="items">
       <h2 className="text-center mt-3">Items</h2>
