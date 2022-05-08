@@ -1,4 +1,5 @@
 import axios from "axios";
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -12,11 +13,25 @@ const MyItems = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     // get user items
-    axios
-      .get(`https://secret-wildwood-43092.herokuapp.com/itemsByEmail?email=${user.email}`)
+    try {
+      axios
+      .get(`https://secret-wildwood-43092.herokuapp.com/itemsByEmail?email=${user.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+      })
       .then((res) => {
         setItems(res.data);
       });
+    }
+    catch(error) {
+      console.log(error.message)
+      if(error.response.status === 401 || error.response.status === 403) {
+        signOut(auth);
+        navigator('/login');
+        localStorage.removeItem('accessToken');
+      }
+    }
   }, [user]);
   return (
     <div className="bg-white">

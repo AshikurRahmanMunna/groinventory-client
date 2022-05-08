@@ -13,6 +13,8 @@ import auth from "../../firebase.init";
 import { toast } from "react-toastify";
 import Loading from "../Shared/Loading/Loading";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import axios from "axios";
+import { async } from "@firebase/util";
 
 const Login = () => {
   const emailRef = useRef();
@@ -28,20 +30,25 @@ const Login = () => {
   if (error) {
     errorElement = <p className="text-danger">{error?.message}</p>;
   }
-  if(loading) {
+  if (loading) {
     return <Loading></Loading>;
   }
   // handle login
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    await axios
+      .post("https://secret-wildwood-43092.herokuapp.com/user", {email})
+      .then((res) =>
+        localStorage.setItem("accessToken", res?.data?.accessToken)
+      );
   };
   const passwordReset = () => {
     const email = emailRef?.current?.value;
     sendPasswordResetEmail(email);
-    toast.success('Email Sent', {
+    toast.success("Email Sent", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: true,
@@ -49,12 +56,12 @@ const Login = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "dark"
+      theme: "dark",
     });
   };
   // if user available navigate him
   if (user) {
-    navigate(from, { replace: true });
+    // navigate(from, { replace: true });
   }
   return (
     <div className="full-height-center">
@@ -94,7 +101,10 @@ const Login = () => {
               <input type="submit" value="Login" />
             </form>
             <div style={{ width: "400px" }}>{errorElement}</div>
-            <button onClick={passwordReset} className="text-decoration-none text-muted btn btn-link">
+            <button
+              onClick={passwordReset}
+              className="text-decoration-none text-muted btn btn-link"
+            >
               Forgot Password
             </button>
             <SocialLogin></SocialLogin>
