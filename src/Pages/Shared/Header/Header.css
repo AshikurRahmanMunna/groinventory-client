@@ -5,3 +5,8 @@
 .custom-nav {
     background: white;
 }
+@media only screen and (min-width: 992px) and (max-width: 1201px) {
+    .custom-nav .nav-link {
+        font-size: 13px;
+    }
+}

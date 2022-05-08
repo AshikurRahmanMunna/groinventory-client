@@ -11,7 +11,7 @@
 .banner-text {
     width: 50%;
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 480px) {
     .banner-text {
         width: 100%;
     }

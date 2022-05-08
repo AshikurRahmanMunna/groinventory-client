@@ -68,7 +68,7 @@
 .form-toggle span {
   cursor: pointer;
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 480px) {
   .form input:not([type="checkbox"]),
   .form select,
   .form textarea {
