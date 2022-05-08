@@ -1,5 +1,3 @@
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
@@ -7,6 +5,7 @@ import Slider from "react-slick";
 import Review from "../Review/Review";
 
 const Reviews = () => {
+  // slick slider settings
   const settings = {
     dots: false,
     infinite: false,

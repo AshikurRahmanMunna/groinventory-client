@@ -1,7 +1,7 @@
 import { Button, Modal } from "react-bootstrap";
 import React from "react";
 
-const DeleteConfirm = (props) => {
+const Confirm = (props) => {
     const {heading, body, closeButton, okButton} = props;
   return (
     <Modal
@@ -28,4 +28,4 @@ const DeleteConfirm = (props) => {
   );
 };
 
-export default DeleteConfirm;
+export default Confirm;

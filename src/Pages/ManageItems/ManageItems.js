@@ -26,7 +26,9 @@ const ManageItems = () => {
             Add New Item
           </button>
           <Container className="table-scroll">
+            {/* react-bootstrap table */}
             <Table striped bordered hover responsive>
+              {/* table head */}
               <thead>
                 <tr>
                   <th>Product Name</th>

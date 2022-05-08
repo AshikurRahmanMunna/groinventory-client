@@ -6,6 +6,7 @@ const Item = ({ item }) => {
   const { _id, name, img, shortDesc, price, quantity, supplierName, unit } = item;
   const navigate = useNavigate();
   return (
+    // item card
     <div className="col item-card">
       <img className="img-fluid mb-2 w-100" src={img} alt={name} />
       <div className="item-card-body">
@@ -20,11 +21,13 @@ const Item = ({ item }) => {
           Quantity: {quantity}
           {unit}
         </p>
+        {/* total price */}
         <p>
           Total Price: {quantity * price}Tk
         </p>
         <p>Supplier: {supplierName}</p>
       </div>
+      {/* stock update */}
       <button onClick={() => navigate(`inventory/${_id}`)}>Stock Update</button>
     </div>
   );

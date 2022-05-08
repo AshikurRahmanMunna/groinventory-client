@@ -19,6 +19,7 @@ const AddReview = () => {
     const rating = parseFloat(event.target.rating.value);
     const email = user?.email;
     const name = user?.displayName;
+    // add a review
     axios
       .post(`https://secret-wildwood-43092.herokuapp.com/reviews`, {
         name,
@@ -55,6 +56,7 @@ const AddReview = () => {
       });
   };
   return (
+    // add reviews
     <div className="full-height-center">
       <div>
         <Container>

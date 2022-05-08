@@ -6,6 +6,7 @@ const SingleNews = ({news}) => {
     const {title, img, desc, date, time, _id} = news;
     const navigate = useNavigate();
     return (
+        // news card
         <div onClick={() => navigate(`/news/${_id}`)} className='news-card'>
             <img className='img-fluid w-100' src={img} alt="" />
             <h5 className='mt-2'>{title}</h5>

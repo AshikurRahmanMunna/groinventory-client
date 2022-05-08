@@ -5,11 +5,13 @@ import auth from "../../firebase.init";
 import Loading from "../Shared/Loading/Loading";
 
 const EmailVerify = () => {
+  // get user
   const [user, loading, error] = useAuthState(auth);
   const [sendEmailVerification, sending, errorSending] = useSendEmailVerification(auth);
   if(loading || sending) {
     return <Loading></Loading>;
   }
+  // send email
     const handleSendVerification = () => {
         sendEmailVerification(user?.email);
         toast.success('Email Sent', {

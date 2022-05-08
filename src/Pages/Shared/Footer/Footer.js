@@ -22,6 +22,7 @@ const Footer = () => {
   const [hideFooter, setHideFooter] = useState();
   const location = useLocation();
   const pathname = location.pathname;
+  // hide footer on specific pathname
   useEffect(() => {
     if (
       pathname === "/login" ||
@@ -51,6 +52,7 @@ const Footer = () => {
             </p>
             <div className="social mb-3">
               <div className="footer-social">
+                {/* social links */}
                 <a
                   href="https://www.facebook.com/ashikurrahman.munna.90"
                   rel="noopener noreferrer"
@@ -89,6 +91,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="col footer-contact text-muted">
+            {/* contact info */}
             <h3 className="text-black">Contact Info</h3>
             <ul className="p-0">
               <li>
@@ -161,6 +164,7 @@ const Footer = () => {
         </div>
         <hr />
         <div className="text-center">
+          {/* footer copyright */}
           <h5 className="pt-3">
             &copy; Copyright 2022 ||{" "}
             <span className="text-custom-primary">Ashikur Rahman Munna</span>

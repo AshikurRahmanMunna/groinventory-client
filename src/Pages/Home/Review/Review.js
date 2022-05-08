@@ -11,6 +11,7 @@ const Review = ({review, spacing}) => {
             <img className='mx-auto' src={img} alt={name} />
             <h5>{name}</h5>
             <p><small>{desc}</small></p>
+            {/* rating by react rating */}
             <Rating initialRating={rating} emptySymbol={<FontAwesomeIcon style={{color: 'lightgray'}} icon={faStar} />} fullSymbol={<FontAwesomeIcon style={{color: 'orange'}} icon={faStar} />} readonly />
         </div>
     );

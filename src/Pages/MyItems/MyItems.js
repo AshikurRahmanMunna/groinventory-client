@@ -9,9 +9,9 @@ import ManageInventoryRow from "../ManageInventoryRow/ManageInventoryRow";
 
 const MyItems = () => {
   const [user, loading, error] = useAuthState(auth);
-  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   useEffect(() => {
+    // get user items
     axios
       .get(`https://secret-wildwood-43092.herokuapp.com/itemsByEmail?email=${user.email}`)
       .then((res) => {

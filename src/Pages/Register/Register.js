@@ -28,6 +28,7 @@ const Register = () => {
   if(loading || updating) {
     return <Loading></Loading>
   }
+  // handleRegister
   const handleRegister = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -46,6 +47,7 @@ const Register = () => {
     });
     await updateProfile({ displayName: name });
   };
+  // if user available navigate him
   if (user) {
     navigate(from, { replace: true });
   }

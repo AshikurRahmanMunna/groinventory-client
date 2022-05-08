@@ -8,6 +8,7 @@ const MyReviews = () => {
     const [reviews, setReviews] = useState([]);
     const [user, loading, error] = useAuthState(auth);
     useEffect(() => {
+        // get user reviews
         axios.get(`https://secret-wildwood-43092.herokuapp.com/review?email=${user.email}`)
         .then(res => setReviews(res?.data));
     }, [user])

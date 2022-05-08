@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import DeleteConfirm from "../Shared/Confirm/Confirm";
+import Confirm from "../Shared/Confirm/Confirm";
 import "./ManageInventoryRow.css";
 
 const ManageInventoryRow = ({ item, setItems, items }) => {
@@ -46,6 +46,7 @@ const ManageInventoryRow = ({ item, setItems, items }) => {
   };
 
   return (
+    // table row
     <tr>
       <td>{name}</td>
       <td>
@@ -73,7 +74,8 @@ const ManageInventoryRow = ({ item, setItems, items }) => {
           </button>
         </div>
       </td>
-      <DeleteConfirm
+      {/* confirm to delete */}
+      <Confirm
         show={confirmShow}
         onConfirm={handleDelete}
         onHide={handleNotDelete}
@@ -81,7 +83,7 @@ const ManageInventoryRow = ({ item, setItems, items }) => {
         body={`Do You Really Want To Delete ${name}`}
         closeButton="Close"
         okButton="Delete"
-      ></DeleteConfirm>
+      ></Confirm>
     </tr>
   );
 };

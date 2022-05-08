@@ -14,6 +14,7 @@ const Header = () => {
   const [user, loading, error] = useAuthState(auth);
   const location = useLocation();
   const pathname = location.pathname;
+  // hide header on specific pathname
   useEffect(() => {
     if (
       pathname === "/login" ||
@@ -43,6 +44,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
+              {/* dynamic links */}
               {user ? (
                 <>
                   <Nav.Link as={Link} to="/">
@@ -76,6 +78,7 @@ const Header = () => {
               )}
             </Nav>
             <Nav className="ms-auto">
+              {/* dynamic user status or dropdown */}
               {user ? (
                 <NavDropdown title={user?.displayName} id="basic-nav-dropdown">
                   <NavDropdown.Item as={Link} to="/news/add">

@@ -31,6 +31,7 @@ const Login = () => {
   if(loading) {
     return <Loading></Loading>;
   }
+  // handle login
   const handleLogin = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -51,6 +52,7 @@ const Login = () => {
       theme: "dark"
     });
   };
+  // if user available navigate him
   if (user) {
     navigate(from, { replace: true });
   }

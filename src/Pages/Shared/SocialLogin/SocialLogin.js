@@ -20,8 +20,11 @@ const SocialLogin = () => {
     }
     return (
         <div className='social-login'>
+            {/* social login */}
             <p className="text-center mt-2">Or Continue With</p>
+            {/* facebook */}
             <button onClick={() => signInWithFacebook()} className='me-3'><FontAwesomeIcon icon={faFacebookF} /></button>
+            {/* google */}
             <button onClick={() => signInWithGoogle()}><FontAwesomeIcon icon={faGoogle} /></button>
         </div>
     );

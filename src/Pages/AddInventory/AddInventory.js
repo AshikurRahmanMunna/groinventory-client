@@ -10,6 +10,7 @@ import auth from "../../firebase.init";
 const AddInventory = () => {
   const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
+  // add item
   const handleAddItem = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -19,6 +20,7 @@ const AddInventory = () => {
     const quantity = parseInt(event.target.quantity.value);
     const unit = event.target.unit.value;
     const img = event.target.img.value;
+    // post the item
     axios
       .post("https://secret-wildwood-43092.herokuapp.com/items", {
         name,
@@ -33,6 +35,7 @@ const AddInventory = () => {
       .then((res) => {
         console.log(res.data)
         if (res?.data?.acknowledged === true) {
+          // success toast
           toast.success("Item Added Successfully", {
             position: "top-right",
             autoClose: 5000,
@@ -44,6 +47,7 @@ const AddInventory = () => {
             theme: "dark",
           });
           event.target.reset();
+          // navigate to manage inventory
           navigate('/inventory/manage');
         }
       });

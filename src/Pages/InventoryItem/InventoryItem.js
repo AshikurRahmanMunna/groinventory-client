@@ -9,6 +9,7 @@ const InventoryItem = () => {
   const [item, setItem] = useState({});
   const { _id, name, img, shortDesc, price, quantity, supplierName, unit } =
     item;
+  // sold state
   const [sold, setSold] = useState('');
     useEffect(() => {
       if(quantity === 0) {
@@ -18,13 +19,16 @@ const InventoryItem = () => {
         setSold(false);
       }
     }, [quantity])
+    // get item by id
   useEffect(() => {
     axios
       .get(`https://secret-wildwood-43092.herokuapp.com/item/${id}`)
       .then((res) => setItem(res.data));
   }, [id]);
+  // deliver
   const handleDeliver = () => {
     if(quantity > 0) {
+      // decrease quantity by 1
       axios
       .put(`https://secret-wildwood-43092.herokuapp.com/item/${id}`, {
         quantity: item.quantity - 1,
@@ -50,9 +54,11 @@ const InventoryItem = () => {
       });
     }
   };
+  // restock
   const handleRestock = event => {
     event.preventDefault();
     const restockAmount = event.target.restock.value;
+    // increase quantity by restock input
     axios
       .put(`https://secret-wildwood-43092.herokuapp.com/item/${id}`, {
         quantity: item.quantity + parseFloat(restockAmount),
@@ -67,6 +73,7 @@ const InventoryItem = () => {
       event.target.reset();
   }
   return (
+    // Inventory stock manage
     <div className="container inventory-item d-flex my-5 align-items-center justify-content-center">
       <div className="col-md-6">
         <img className="img-fluid w-100" src={img} alt="" />

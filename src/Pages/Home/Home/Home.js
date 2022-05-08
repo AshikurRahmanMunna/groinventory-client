@@ -9,6 +9,7 @@ const Home = () => {
     const navigate = useNavigate();
     return (
         <div>
+            {/* banner */}
             <div className="banner d-flex align-items-center justify-content-center">
                 <div className='text-center banner-text'>
                     <h2>The Best Place To <span className='text-custom-primary'>Manage</span> Inventory</h2>
@@ -16,8 +17,11 @@ const Home = () => {
                     <button onClick={() => navigate('/manageitems')} className='btn-custom'>Manage Items</button>
                 </div>
             </div>
+            {/* items */}
             <Items></Items>
+            {/* reviews */}
             <Reviews></Reviews>
+            {/* news */}
             <News></News>
         </div>
     );

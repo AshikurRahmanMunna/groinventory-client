@@ -8,12 +8,14 @@ const NewsDetails = () => {
   const { title, img, desc, date, time, _id } = news;
   const { id } = useParams();
   useEffect(() => {
+    // get news by id
     axios
       .get(`https://secret-wildwood-43092.herokuapp.com/newsDetails/${id}`)
       .then((res) => setNews(res.data));
   }, []);
   return (
     <Container>
+      {/* news details */}
       <div className="news-card w-50 d-block mx-auto my-5">
         <img className="img-fluid w-100" src={img} alt="" />
         <h5 className="mt-2">{title}</h5>

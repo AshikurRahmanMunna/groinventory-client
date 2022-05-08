@@ -9,6 +9,7 @@ const AddNews = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
+  // get 12 hours time format
   const formatTime = (date) => {
     var hours = date.getHours();
     var minutes = date.getMinutes();
@@ -24,9 +25,11 @@ const AddNews = () => {
     const title = event.target.title.value;
     const img = event.target.img.value;
     const desc = event.target.desc.value;
+    // get todays date in dd/mm/yyyy format
     const date = `${new Date().getDate()}/${
       new Date().getMonth() + 1
     }/${new Date().getFullYear()}`;
+    // get 12 hours time format
     const time = formatTime(new Date());
     const news = {
       title,
@@ -35,6 +38,7 @@ const AddNews = () => {
       date,
       time,
     };
+    // post a news
     axios.post("https://secret-wildwood-43092.herokuapp.com/news", news).then((res) => {
       if (res.data.acknowledged === true) {
         toast.success("News Added Successfully", {
@@ -63,6 +67,7 @@ const AddNews = () => {
     });
   };
   return (
+    // add news
     <div className="full-height-center">
       <div>
         <Container>

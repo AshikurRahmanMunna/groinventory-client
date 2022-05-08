@@ -30,6 +30,7 @@ function App() {
   return (
     <div>
       <Header></Header>
+      {/* routes */}
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
@@ -85,12 +86,16 @@ function App() {
         <Route path="/news/:id" element={<NewsDetails></NewsDetails>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      {/* messenger */}
       <MessengerCustomerChat
         pageId="104722065573692"
         appId="1168493543948897"
       />
+      {/* to top */}
       <ToTop></ToTop>
+      {/* toast */}
       <ToastContainer></ToastContainer>
+      {/* footer */}
       <Footer></Footer>
     </div>
   );
